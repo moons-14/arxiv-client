@@ -3,9 +3,12 @@ import arxivClient, { abstract, and, author, not, or, title, category } from "./
 async function exampleUsage() {
     try {
 
-        const articles = await arxivClient.query(and(category("quant-ph"), title("")))
+        const articles = await arxivClient.query(
+            and(category("cs.AI"), title("game"), abstract("reinforcement learning")),
+            not(or(title("deep"), title("Human"))),
+        )
             .start(0)
-            .maxResults(10)
+            .maxResults(20)
             .sortBy('lastUpdatedDate')
             .sortOrder('ascending')
             .execute();

@@ -1,6 +1,7 @@
 import type { Category } from './defines/categories';
 import { parseStringPromise } from 'xml2js';
 import xmlAxios from './fetch/axios';
+import { and } from './queryBuilder';
 
 
 interface ArxivClientOptions {
@@ -45,8 +46,12 @@ class ArxivClient {
         this.baseURL = options?.baseURL || 'https://export.arxiv.org/api/query';
     }
 
-    public query(queryString: string, idList: string[] = []): this {
-        this.queryString = queryString;
+    public query(...queryString: string[]): this {
+        this.queryString = and(...queryString);
+        return this;
+    }
+
+    public ids(idList: string[]): this {
         this.idList = idList;
         return this;
     }
@@ -71,7 +76,7 @@ class ArxivClient {
         return this;
     }
 
-    public async execute() {
+    get url() {
         const params = new URLSearchParams({
             search_query: this.queryString,
             start: this.startValue.toString(),
@@ -90,6 +95,12 @@ class ArxivClient {
         }
 
         const url = `${this.baseURL}?${params.toString()}`;
+
+        return url;
+    }
+
+    public async execute() {
+        const url = this.url;
 
         const response = await xmlAxios.get(url);
         const responseData = await response.data;

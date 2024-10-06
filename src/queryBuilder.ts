@@ -3,11 +3,11 @@ import { Category } from "./defines/categories";
 export type Query = string;
 
 export const and = (...queries: Query[]): Query => {
-    return queries.join(' AND ');
+    return "(" + queries.join(' AND ') + ")";
 };
 
 export const or = (...queries: Query[]): Query => {
-    return queries.join(' OR ');
+    return "(" + queries.join(' OR ') + ")";
 };
 
 export const not = (query: Query): Query => {

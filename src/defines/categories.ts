@@ -380,5 +380,5 @@ export type Category =
     | {
         [K in keyof typeof categories]: typeof categories[K] extends readonly [string] // 配列の要素が一つでかつarchive名と同じ場合
         ? K // そのアーカイブ名のみを許可
-        : `${K}.${(typeof categories[K])[number]}`; // それ以外の場合はアーカイブ名.カテゴリの形式にする
+        : `${K}.${(typeof categories[K])[number]}` | K; // それ以外の場合はアーカイブ名.カテゴリの形式にする
     }[keyof typeof categories];

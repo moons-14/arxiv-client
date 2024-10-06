@@ -1,6 +1,6 @@
 {
     "name": "arxiv-client",
-    "version": "0.0.7",
+    "version": "0.0.8",
     "description": "A TypeScript client library for interacting with the arXiv API",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
@@ -15,7 +15,6 @@
         "typescript",
         "client"
     ],
-    "author": "moons-14 <moons@moons14.com>",
     "license": "MIT",
     "dependencies": {
         "axios": "^1.7.7",
@@ -27,5 +26,13 @@
         "@types/xml2js": "^0.4.14",
         "tsx": "^4.19.1",
         "typescript": "^5.6.2"
+    },
+    "homepage": "https://www.npmjs.com/package/arxiv-client",
+    "bugs": "https://github.com/moons-14/arxiv-client/issues",
+    "repository": "github:moons-14/arxiv-client",
+    "author": {
+        "name": "moons14",
+        "email": "moons@moons14.com",
+        "url": "https://github.com/moons-14"
     }
 }

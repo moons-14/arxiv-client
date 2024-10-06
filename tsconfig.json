@@ -4,7 +4,8 @@
         "module": "NodeNext",
         "outDir": "./dist",
         "strict": true,
-        "esModuleInterop": true
+        "esModuleInterop": true,
+        "declaration": true,
     },
     "include": [
         "src/**/*.ts"

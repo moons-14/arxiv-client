@@ -1,3 +1,5 @@
+import { Category } from "./defines/categories";
+
 export type Query = string;
 
 export const and = (...queries: Query[]): Query => {
@@ -32,7 +34,7 @@ export const journalReference = (journal: string): Query => {
     return `jr:"${encodeURIComponent(journal)}"`;
 };
 
-export const category = (category: string): Query => {
+export const category = (category: Category): Query => {
     return `cat:"${encodeURIComponent(category)}"`;
 };
 
@@ -40,6 +42,6 @@ export const reportNumber = (report: string): Query => {
     return `rn:"${encodeURIComponent(report)}"`;
 };
 
-export const allFields = (term: string): Query => {
+export const all = (term: string): Query => {
     return `all:"${encodeURIComponent(term)}"`;
 };

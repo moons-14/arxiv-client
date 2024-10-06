@@ -1,12 +1,18 @@
 import { arxivClient } from './apiClient';
-import { and, or, not, title, author, abstract } from './queryBuilder';
+import { and, or, not, title, author, abstract, comment, journalReference, category, reportNumber, all } from './queryBuilder';
 
 export {
-    arxivClient,
     and,
     or,
     not,
     title,
     author,
-    abstract
+    abstract,
+    comment,
+    journalReference,
+    category,
+    reportNumber,
+    all,
 };
+
+export default arxivClient;

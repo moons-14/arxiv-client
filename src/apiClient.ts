@@ -90,7 +90,6 @@ class ArxivClient {
         }
 
         const url = `${this.baseURL}?${params.toString()}`;
-        console.log(url);
 
         const response = await xmlAxios.get(url);
         const responseData = await response.data;
@@ -107,7 +106,6 @@ class ArxivClient {
             entries = [entries];
         }
 
-        console.dir(entries, { depth: null });
         return entries.map((entry: any) => ({
             id: entry.id,
             title: entry.title,

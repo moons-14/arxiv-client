@@ -10,8 +10,8 @@ interface ArxivClientOptions {
 export type ArxivEntry = {
     id: string; // 9999999v9
     title: string; // "Title of the paper"
-    updated: Date; // EDT?
-    published: Date; // EDT?
+    updated: Date; // UTC?
+    published: Date; // UTC?
     summary: string; // "Summary of the paper"
     authors: {
         name: string; // "Author 1"

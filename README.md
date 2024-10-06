@@ -10,7 +10,7 @@ npm install arxiv-client
 
 Example usage:
 ```typescript
-import arxivClient, { abstract, and, not, or, title, category } from "./src/index";
+import arxivClient, { abstract, and, not, or, title, category } from "arxiv-client";
 
 const articles = await arxivClient.query(
     and(category("cs.AI"), title("game"), abstract("reinforcement learning")),

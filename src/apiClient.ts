@@ -42,7 +42,7 @@ class ArxivClient {
     private sortOrderValue?: 'ascending' | 'descending';
 
     constructor(options?: ArxivClientOptions) {
-        this.baseURL = options?.baseURL || 'http://export.arxiv.org/api/query';
+        this.baseURL = options?.baseURL || 'https://export.arxiv.org/api/query';
     }
 
     public query(queryString: string, idList: string[] = []): this {

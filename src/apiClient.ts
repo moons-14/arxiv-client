@@ -1,6 +1,5 @@
 import type { Category } from './defines/categories';
-import { parseStringPromise } from 'xml2js';
-import xmlAxios from './fetch/axios';
+import xmlFetch from './fetch/xmlFetch';
 import { and } from './queryBuilder';
 
 
@@ -102,11 +101,12 @@ class ArxivClient {
     public async execute() {
         const url = this.url;
 
-        const response = await xmlAxios.get(url);
-        const responseData = await response.data;
+        const response = await xmlFetch.get(url);
         if (response.status !== 200) {
             throw new Error(`Error fetching data from arXiv API`);
         }
+
+        const responseData = response.data;
 
         return responseData.feed.entry ? this.normalizeResponse(responseData.feed.entry) : [];
 

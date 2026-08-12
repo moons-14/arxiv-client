@@ -1,24 +1,30 @@
-import arxivClient, { abstract, and, author, not, or, title, category } from "./src/index";
+import { ArxivClient, abstract, and, category, title } from "./src/index";
 
-async function exampleUsage() {
-    try {
+const client = new ArxivClient();
 
-        const articles = await arxivClient.query(
-            and(category("cs.AI"), title("game"), abstract("reinforcement learning")),
-            not(or(title("deep"), title("Human"))),
-        )
-            .start(0)
-            .maxResults(20)
-            .sortBy('lastUpdatedDate')
-            .sortOrder('ascending')
-            .execute();
+async function main(): Promise<void> {
+  const result = await client.search({
+    query: and(
+      category("cs.AI"),
+      title("reinforcement learning"),
+      abstract("robotics"),
+    ),
+    maxResults: 3,
+    sortBy: "lastUpdatedDate",
+    sortOrder: "descending",
+  });
 
-        console.dir(articles, {
-            depth: null
-        });
-    } catch (error) {
-        console.error('Error:', error);
-    }
+  console.log({
+    returned: result.entries.length,
+    totalResults: result.totalResults,
+    url: result.url,
+  });
+
+  for (const entry of result.entries) {
+    console.log(`${entry.arxivId}: ${entry.title}`);
+  }
 }
 
-exampleUsage();
+main().catch((error: unknown) => {
+  console.error("arXiv request failed", error);
+});

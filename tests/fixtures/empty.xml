@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:openSearch="http://a9.com/-/spec/opensearch/1.1/">
+  <id>https://arxiv.org/api/</id>
+  <title>ArXiv Query: search_query=all:foo</title>
+  <updated>2024-02-03T04:05:06Z</updated>
+  <openSearch:totalResults>0</openSearch:totalResults>
+  <openSearch:startIndex>0</openSearch:startIndex>
+  <openSearch:itemsPerPage>0</openSearch:itemsPerPage>
+</feed>

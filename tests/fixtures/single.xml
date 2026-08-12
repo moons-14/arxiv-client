@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns:openSearch="http://a9.com/-/spec/opensearch/1.1/">
+  <id>https://arxiv.org/api/abc</id><title>Single</title><updated>2024-02-03T04:05:06Z</updated>
+  <openSearch:totalResults>1</openSearch:totalResults><openSearch:startIndex>0</openSearch:startIndex><openSearch:itemsPerPage>1</openSearch:itemsPerPage>
+  <entry>
+    <id>https://arxiv.org/abs/1234.5678v2</id><title>A &amp;amp; Useful Paper</title>
+    <updated>2024-02-03T04:05:06Z</updated><published>2024-01-02T03:04:05Z</published><summary>A concise abstract.</summary>
+    <author><name>Ada Lovelace</name><arxiv:affiliation>Analytical Engine Institute</arxiv:affiliation></author><author><name>Alan Turing</name></author>
+    <category term="cs.AI"/><category term="stat.ML"/><arxiv:primary_category term="cs.AI"/>
+    <arxiv:doi>10.1234/example</arxiv:doi><arxiv:comment>12 pages</arxiv:comment><arxiv:journal_ref>Journal of Tests (2024)</arxiv:journal_ref>
+    <link href="https://arxiv.org/abs/1234.5678v2" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/1234.5678v2" rel="related" type="application/pdf"/>
+    <link href="https://doi.org/10.1234/example" rel="related" title="doi"/>
+  </entry>
+</feed>

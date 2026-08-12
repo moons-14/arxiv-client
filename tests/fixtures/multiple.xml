@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:arxiv="http://arxiv.org/schemas/atom">
+  <entry><id>https://arxiv.org/abs/1111.1111v1</id><title>First</title><updated>2024-01-01T00:00:00Z</updated><published>2024-01-01T00:00:00Z</published><summary>One</summary><author><name>One</name></author><category term="cs.AI"/><arxiv:doi>10.5555/no-link</arxiv:doi></entry>
+  <entry><id>https://arxiv.org/abs/hep-th/9901001</id><title>Second</title><updated>2024-01-02T00:00:00Z</updated><published>2024-01-02T00:00:00Z</published><summary>Two</summary><author><name>Two</name></author><category term="hep-th"/></entry>
+</feed>

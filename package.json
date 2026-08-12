@@ -1,38 +1,71 @@
 {
-    "name": "arxiv-client",
-    "version": "0.0.9",
-    "description": "A TypeScript client library for interacting with the arXiv API",
-    "main": "dist/index.js",
-    "types": "dist/index.d.ts",
-    "scripts": {
-        "build": "tsc",
-        "test": "echo \"No test specified\"",
-        "run:example": "tsx example.ts"
-    },
-    "keywords": [
-        "arxiv",
-        "api",
-        "typescript",
-        "client"
-    ],
-    "license": "MIT",
-    "dependencies": {
-        "axios": "^1.7.7",
-        "fast-xml-parser": "^4.5.0",
-        "xml2js": "^0.6.2"
-    },
-    "devDependencies": {
-        "@biomejs/biome": "1.9.3",
-        "@types/xml2js": "^0.4.14",
-        "tsx": "^4.19.1",
-        "typescript": "^5.6.2"
-    },
-    "homepage": "https://www.npmjs.com/package/arxiv-client",
-    "bugs": "https://github.com/moons-14/arxiv-client/issues",
-    "repository": "github:moons-14/arxiv-client",
-    "author": {
-        "name": "moons14",
-        "email": "moons@moons14.com",
-        "url": "https://github.com/moons-14"
+  "name": "arxiv-client",
+  "version": "0.0.9",
+  "description": "A TypeScript client library for interacting with the arXiv API",
+  "type": "module",
+  "sideEffects": false,
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      },
+      "default": "./dist/index.js"
     }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "packageManager": "pnpm@11.16.0",
+  "scripts": {
+    "clean": "node -e \"require('node:fs').rmSync('dist',{recursive:true,force:true});require('node:fs').rmSync('coverage',{recursive:true,force:true})\"",
+    "build": "tsup src/index.ts --format esm,cjs --dts --sourcemap --clean --out-dir dist",
+    "typecheck": "tsc --noEmit && tsc --project tsconfig.test.json",
+    "lint": "biome check .",
+    "check": "biome check . && tsc --noEmit && tsc --project tsconfig.test.json",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:live": "ARXIV_LIVE=1 vitest run tests/live.test.ts --reporter=verbose",
+    "test:package": "npm run build && node scripts/verify-package.mjs && npm pack --dry-run --ignore-scripts",
+    "run:example": "tsx example.ts",
+    "prepack": "npm run check && npm test && npm run build && node scripts/verify-package.mjs"
+  },
+  "keywords": [
+    "arxiv",
+    "api",
+    "typescript",
+    "client"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "fast-xml-parser": "^5.2.5"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.2.0",
+    "@types/node": "^24.0.0",
+    "tsup": "^8.5.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.3",
+    "vitest": "^3.2.4"
+  },
+  "homepage": "https://www.npmjs.com/package/arxiv-client",
+  "bugs": "https://github.com/moons-14/arxiv-client/issues",
+  "repository": "github:moons-14/arxiv-client",
+  "author": {
+    "name": "moons14",
+    "email": "moons@moons14.com",
+    "url": "https://github.com/moons-14"
+  }
 }

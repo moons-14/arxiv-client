@@ -1,5 +1,14 @@
-/node_modules
-/src
+node_modules/
+src/
+coverage/
+.github/
+.agents/
+.codex/
+scripts/
 tsconfig.json
+tsconfig.test.json
 example.ts
 biome.json
+vitest.config.*
+*.test.ts
+*.spec.ts
